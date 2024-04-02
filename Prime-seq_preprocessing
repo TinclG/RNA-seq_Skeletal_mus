@@ -1,15 +1,19 @@
-# Downloading data to the server
+server path
+batch 1:/mnt/data/tina/20231228_primeseq_myogen_1/X204SC23123373-Z01-F001
+batch 2: 
+
+##Downloading data to the server
 
 untar-> move to data folder -> merge lanes with cat 
 
-# Running the QC
+##Running the QC
 
 fastqc, multiqc -> check the report
 
-# zUMI Mapping
+##zUMI Mapping
 
 git clone https://github.com/sdparekh/zUMIs.git
 zUMIs/zUMIs.sh -c -y /mnt/data/USER/PROJECT_NAME/Data/PROJECT_NAME_PrimeSeq_zUMI_config.yaml
 
 
-# export the outs and fetch the count matrix in R
+##export the outs and fetch the count matrix in R
