@@ -1,0 +1,15 @@
+# Downloading data to the server
+
+untar-> move to data folder -> merge lanes with cat 
+
+# Running the QC
+
+fastqc, multiqc -> check the report
+
+# zUMI Mapping
+
+git clone https://github.com/sdparekh/zUMIs.git
+zUMIs/zUMIs.sh -c -y /mnt/data/USER/PROJECT_NAME/Data/PROJECT_NAME_PrimeSeq_zUMI_config.yaml
+
+
+# export the outs and fetch the count matrix in R
