@@ -18,14 +18,18 @@ merge lanes
 cat lanes*1* > cat_lane1
 cat lanes*2* > cat_lane2
 
-##Running the QC
+## Running the QC
 mkdir Reports/Untrimmed/FastQC_untrimmed_output
 fastqc /mnt/data/tina/01.RawData/*fq.gz -o Reports/Untrimmed/FastQC_untrimmed_output
 
+## Trimming
+python trim_r1A_r2i.py -n (nr of samples) -i 01.RawData/*fq.gz -t 02.TrimmedData/
+
+## QC on trimmed data 
 mkdir Reports/Trimmed/FastQC_trimmed_output
 fastqc /mnt/data/tina/02.TrimmedData/*TrimG*fq.gz -o Reports/Trimmed/FastQC_trimmed_output
 
-##zUMI Mapping
+## zUMI Mapping
 
 Barcode_file.tsv --> import from local and change txt > tsv
 
@@ -33,4 +37,4 @@ git clone https://github.com/sdparekh/zUMIs.git
 Edit PROJECT_NAME_PrimeSeq_zUMI_config.yaml 
 zUMIs/zUMIs.sh -c -y /mnt/data/USER/PROJECT_NAME/Data/PROJECT_NAME_PrimeSeq_zUMI_config.yaml
 
-##export the outs and fetch the count matrix in R
+## export the outs and fetch the count matrix in R
